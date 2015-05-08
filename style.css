@@ -1,0 +1,16 @@
+* {
+	box-sizing: border-box;
+}
+
+.grid {
+	height: 450px;
+	width: 	450px;
+	margin: 0 auto;
+}
+
+.box {
+	height: 150px;
+	width: 	150px;
+	float: left;
+	border: 8px solid orange;
+}
