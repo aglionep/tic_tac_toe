@@ -39,11 +39,16 @@ body {
 	width: 300px;
 	float: left;
 	padding-left: 125px;
+	position: absolute;
+  	top: 300px;
 }
 #Player2{
 	width: 300px;
 	float: right;
 	padding-right: 125px;
+	position: absolute;
+  	top: 300px;
+  	right: 0;
 }
 h1 {
 	color: white;
@@ -52,6 +57,6 @@ h1 {
   	 text-align: center;
   	 padding-bottom: 30px;
  }
-input {
-	margin-bottom: 100px
-}
+ img {
+ 	padding-top: 15px;
+ }
