@@ -1,7 +1,6 @@
 var box = document.getElementsByClassName("box");
 console.log(box);
 
-
 var player = true;
 var winningCombos = [
  ["1","2","3"], 
@@ -26,8 +25,6 @@ function hasWinningCombo(playerMoves, winningCombos) {
    }
    return false;
 }
-
-
 
 window.addEventListener("load", function() {
 	gameSetMatch();
