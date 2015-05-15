@@ -2,11 +2,28 @@ angular
 	.module("tttApp")
 	.controller("tttController", tttController);
 
-	tttController.$inject = ['$firebaseArray']
+	// tttController.$inject = ['$firebaseArray']
 
-//
-	function tttController()
+// establishes ttt controller
+	function tttController(){
+		var self = this;
+		self.boxes = [{select: false, status: "null"},{select: false, status: "null"},{select: false, status: "null"},
+					{select: false, status: "null"},{select: false, status: "null"},{select: false, status: "null"},
+					{select: false, status: "null"},{select: false, status: "null"},{select: false, status: "null"}]
+	
+		
+		// self.serve = function(i) {
+		// 	if(self.boxes[i].select === true){
+		// 		self.boxes[i].select = false;
+		// 		console.log('play');
+		// 	}
 
+		// }
+		// function testFunction() {}
+	};		
+
+
+	
 
 
  	// function tttController($firebaseArray){

@@ -1,39 +1,42 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Game, Set, Match</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	
-	<script type="text/javascript" src="js/angular.js"></script>
-	<script type="text/javascript" src="js/firebase.js"></script>
-	<script type="text/javascript" src="js/angularfire.js"></script>
+	<head>
+		<title>Game, Set, Match</title>
+		
+		<link rel="stylesheet" type="text/css" href="style.css">
 
-	<script src="js/app.js"></script>
-	<script src="js/tttControler.js"></script>
-</head>
-<body ng-app="tttApp" ng-controller="tttController as tttCtrl">
+		<script type="text/javascript" src="js/angular.js"></script>
+		<script type="text/javascript" src="js/firebase.js"></script>
+		<script type="text/javascript" src="js/angularfire.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/tttControler.js"></script>
+	</head>
+	
+	<body ng-app="tttApp" ng-controller="tttController as tttCtrl" ng-click="tttCtrl.serve">
 	{{2+2}}
-	<h1>GAME, SET, MATCH !!!</h1>
-	<div class="container">  
-		<div class="grid">
-		    <div id="1" class="box"></div>
-		    <div id="2" class="box"></div>
-		    <div id="3" class="box"></div>
-		    <div id="4" class="box"></div>
-		    <div id="5" class="box"></div>
-		    <div id="6" class="box"></div>
-		    <div id="7" class="box"></div>
-		    <div id="8" class="box"></div>
-		    <div id="9" class="box"></div>
-		</div>
-	</div>	
-		<div id = "Player1">
-			<h1>Player 1</h1>
-			<input type="text" name="Player 1" placeholder="SCORE">
-		</div>		
-		<div id = "Player2">
-			<h1>Player 2</h1>
-			<input type="text" name="Player 2" placeholder="SCORE">
+		<h1>GAME, SET, MATCH !!!</h1>
+		<div class="container">  
+			<div ng-class="box {{box.status}}"
+			ng-repeat="t in tttCtrl.boxes"> 
+			
+			<!-- <div id="1" class="box"></div>
+				<div id="2" class="box"></div>
+				<div id="3" class="box"></div>
+				<div id="4" class="box"></div>
+				<div id="5" class="box"></div>
+				<div id="6" class="box"></div>
+				<div id="7" class="box"></div>
+				<div id="8" class="box"></div>
+				<div id="9" class="box"></div> -->
+			</div>
 		</div>	
-</body>
+			<div id = "Player1">
+				<h1>Player 1</h1>
+				<input type="text" name="Player 1" placeholder="SCORE">
+			</div>		
+			<div id = "Player2">
+				<h1>Player 2</h1>
+				<input type="text" name="Player 2" placeholder="SCORE">
+		</div>	
+	</body>
 </html>

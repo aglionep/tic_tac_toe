@@ -1,2 +1,2 @@
 angular
-  .module('tttApp' , ['firebase']);
+  .module('tttApp' , []);
