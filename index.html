@@ -20,20 +20,8 @@
 			<div class="box" 
 			ng-repeat="t in tttCtrl.ttt.boxes track by $index" 
 			ng-click="tttCtrl.gamePlay($index)"
-
+			ng-class= "{xplays: t.status == 'x', oplays: t.status == 'o'}">
 			
-			class="xplays", class="oplays">
-			
-			<!-- ng-show= "tttCtrl.images"
-				<div id="1" class="box"></div>
-				<div id="2" class="box"></div>
-				<div id="3" class="box"></div>
-				<div id="4" class="box"></div>
-				<div id="5" class="box"></div>
-				<div id="6" class="box"></div>
-				<div id="7" class="box"></div>
-				<div id="8" class="box"></div>
-				<div id="9" class="box"></div> -->
 			</div>
 		</div>	
 			<div id = "Player1">

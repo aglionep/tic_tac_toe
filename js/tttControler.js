@@ -36,7 +36,7 @@ function tttController($firebaseObject, $index) {
 	// self.gamePlay is the game logic
 	self.gamePlay = gamePlay;
 
-	// self.images = false;
+	self.images = true;
 		
 		
 		// get TTT links up to the firebase 
@@ -65,7 +65,7 @@ function tttController($firebaseObject, $index) {
 
 	// gamePlay is the main game logic
 	function gamePlay($index) {
-		// when a box is clicked check if it has been clicked already
+		// when a box is clicked check if it has been already clicked
 		if (self.ttt.boxes[$index].select === true) { 
 			alert("seats taken")
 		// sets the box to true
@@ -73,20 +73,23 @@ function tttController($firebaseObject, $index) {
 			self.ttt.boxes[$index].select = true;
 			console.log(self.ttt.boxes[$index].select)
 			
-			
-			if (counter % 2 !== 0) {// if its x turn 	
+			// if its x turn 
+			if (counter % 2 !== 0) {	
 				self.ttt.boxes[$index].status = 'x';
 				// console.log(self.ttt.boxes[$index].select);
 				// self.images = true;
 				counter++;
-				// self.ttt.boxes[$index].status = 'x';
+			// if its o turn 
 			} else {
 				self.ttt.boxes[$index].status = 'o';
 				counter++;
 			}
 
+
 		self.ttt.$save();
 		}
+	}
+	function getWinner() {
 
 	}
 

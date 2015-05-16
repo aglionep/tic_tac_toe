@@ -47,7 +47,7 @@ for (var i = 0; i < box.length; i++) {
   box[i].addEventListener('click', function(e) {
   // console.log(box[i]);
   // alert(box[i].indexOf);
-  if(
+  if (
   player === true && this.innerHTML === "") {
   this.innerHTML = "<img src=images/X.png>"; 
   player = false;
@@ -59,14 +59,14 @@ for (var i = 0; i < box.length; i++) {
     alert("x wins");
 }
 }	
-  else if(player === false && this.innerHTML === "") {
+  else if (player === false && this.innerHTML === "") {
   this.innerHTML = "<img src=images/O.png>"; 
   player = true;
   omoves.push(e.target.id);
   allmoves.push(e.target.id);
   console.log(omoves);
   hasWinningCombo(omoves, winningCombos) ==true) {
-  alert("o moves");
+  alert("o moves")
   }
 } 	
   else {

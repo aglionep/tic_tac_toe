@@ -56,8 +56,10 @@ h1 {
  	padding-top: 15px;
  }
 .xplays {
-	background-image: url("../images/X.png");
+	/*background-image: url("../images/X.png");*/
+	background: blue;
 }
 .oplays {
-	background-image: url("../images/O.png");
+	/*background-image: url("../images/O.png");*/
+	background: red;
 }
