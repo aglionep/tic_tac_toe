@@ -3,6 +3,8 @@ var box = document.getElementsByClassName("box");
 
 // Global variables
 var player = true;
+// player var true = x, false = o
+
 var winningCombos = [
   ["1","2","3"], 
   ["4","5","6"], 
@@ -15,6 +17,7 @@ var winningCombos = [
 
 var xmoves = [];
 var omoves = [];
+var allmoves = [];
 
 /* Declares a winner by a winning combination associative array
 */
@@ -46,19 +49,25 @@ for (var i = 0; i < box.length; i++) {
   // alert(box[i].indexOf);
   if(
   player === true && this.innerHTML === "") {
-  this.innerHTML = "<img src=images/X.png>"; player = false;
+  this.innerHTML = "<img src=images/X.png>"; 
+  player = false;
   xmoves.push(e.target.id);
+  allmoves.push(e.target.id);
   console.log(xmoves);
   if (
     hasWinningCombo(xmoves, winningCombos) == true) {
-    alert("win");
+    alert("x wins");
 }
 }	
   else if(player === false && this.innerHTML === "") {
-  this.innerHTML = "<img src=images/O.png>"; player = true;
+  this.innerHTML = "<img src=images/O.png>"; 
+  player = true;
   omoves.push(e.target.id);
+  allmoves.push(e.target.id);
   console.log(omoves);
-  hasWinningCombo(omoves, winningCombos);
+  hasWinningCombo(omoves, winningCombos) ==true) {
+  alert("o moves");
+  }
 } 	
   else {
 

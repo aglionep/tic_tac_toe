@@ -16,10 +16,16 @@
 	{{2+2}}
 		<h1>GAME, SET, MATCH !!!</h1>
 		<div class="container">  
-			<div ng-class="box {{box.status}}"
-			ng-repeat="t in tttCtrl.boxes"> 
 			
-			<!-- <div id="1" class="box"></div>
+			<div class="box" 
+			ng-repeat="t in tttCtrl.ttt.boxes track by $index" 
+			ng-click="tttCtrl.gamePlay($index)"
+
+			
+			class="xplays", class="oplays">
+			
+			<!-- ng-show= "tttCtrl.images"
+				<div id="1" class="box"></div>
 				<div id="2" class="box"></div>
 				<div id="3" class="box"></div>
 				<div id="4" class="box"></div>

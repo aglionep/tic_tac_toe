@@ -31,7 +31,6 @@ body {
 	position: bottom;
 }
 #Player1{
-	font color: white;
 	width: 300px;
 	float: left;
 	padding-left: 125px;
@@ -56,9 +55,9 @@ h1 {
  img {
  	padding-top: 15px;
  }
-.X {
+.xplays {
 	background-image: url("../images/X.png");
 }
-.O {
+.oplays {
 	background-image: url("../images/O.png");
 }

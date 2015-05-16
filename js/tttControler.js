@@ -2,41 +2,92 @@ angular
 	.module("tttApp")
 	.controller("tttController", tttController);
 
-	// tttController.$inject = ['$firebaseArray']
+	tttController.$inject = ['$firebaseObject']
 
 // establishes ttt controller
-	function tttController(){
-		var self = this;
-		self.boxes = [{select: false, status: "null"},{select: false, status: "null"},{select: false, status: "null"},
-					{select: false, status: "null"},{select: false, status: "null"},{select: false, status: "null"},
-					{select: false, status: "null"},{select: false, status: "null"},{select: false, status: "null"}]
+	// function tttController() {
+	// 	var self = this;
+	// 	self.boxes = [{select: false, status: "null"},{select: false, status: "null"},{select: false, status: "null"},
+	// 				{select: false, status: "null"},{select: false, status: "null"},{select: false, status: "null"},
+	// 				{select: false, status: "null"},{select: false, status: "null"},{select: false, status: "null"}]
 	
 		
-		// self.serve = function(i) {
-		// 	if(self.boxes[i].select === true){
-		// 		self.boxes[i].select = false;
-		// 		console.log('play');
-		// 	}
-
-		// }
-		// function testFunction() {}
-	};		
-
-
-	
+	// 	self.serve = (function($index) {
+	// 		console.log($index);
+	// 		if(self.boxes[$index].select === false) {
+	// 			self.boxes[$index].select = true;
+	// 		}
+	// 			else if (self.boxes[$index].select === false) {
+	// 				(self.boxes[$index].select = true)
+	// 					console.log($index);
+	// 			}
 
 
- 	// function tttController($firebaseArray){
-// 		var self = this;
-// 		self.addTtt = addTtt;
-// 		self.ttts = (function() {
-// 			var ref = new Firebase("https://paulstttapp.firebaseio.com/");
-// 			var ttts = $firebaseArray(ref);
-// 			return ttts
-// 	})();
+	// 	});
+	// };		
+	// tttController is the main controller
+function tttController($firebaseObject, $index) {
+ 	var self = this;
+ 		// self.ttt links to the firebase
+ 	var counter = 1;	
+	self.ttt = getTtt();
+		// self.board contains the boxes
+	self.board = board();
+	// self.gamePlay is the game logic
+	self.gamePlay = gamePlay;
 
-// 	function addTtt() {
-// 		self.ttts.$add({message: self.text});
-// 		self.text = null;
-// 	}
-// }
+	// self.images = false;
+		
+		
+		// get TTT links up to the firebase 
+	function getTtt() {
+	   	// var ref links to my firebase
+	   	var ref = new Firebase("https://paulstttapp.firebaseio.com/");
+	   	// ttt is refers itself to the firebase object
+	   	var ttt = $firebaseObject(ref);
+	   		return ttt;
+		};
+		// board contains an array of boxes
+	function board() {
+
+		self.ttt.boxes = [{select: false, status: ""},
+                 {select: false, status: ""},
+                 {select: false, status: ""},
+                 {select: false, status: ""},
+                 {select: false, status: ""},
+                 {select: false, status: ""},
+                 {select: false, status: ""},
+                 {select: false, status: ""},
+                 {select: false, status: ""}];
+		self.ttt.$save();
+
+	}
+
+	// gamePlay is the main game logic
+	function gamePlay($index) {
+		// when a box is clicked check if it has been clicked already
+		if (self.ttt.boxes[$index].select === true) { 
+			alert("seats taken")
+		// sets the box to true
+		} else {
+			self.ttt.boxes[$index].select = true;
+			console.log(self.ttt.boxes[$index].select)
+			
+			
+			if (counter % 2 !== 0) {// if its x turn 	
+				self.ttt.boxes[$index].status = 'x';
+				// console.log(self.ttt.boxes[$index].select);
+				// self.images = true;
+				counter++;
+				// self.ttt.boxes[$index].status = 'x';
+			} else {
+				self.ttt.boxes[$index].status = 'o';
+				counter++;
+			}
+
+		self.ttt.$save();
+		}
+
+	}
+
+};
