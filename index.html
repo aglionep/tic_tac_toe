@@ -20,8 +20,7 @@
 			<div class="box" 
 			ng-repeat="t in tttCtrl.ttt.boxes track by $index" 
 			ng-click="tttCtrl.gamePlay($index)"
-			ng-class= "{xplays: t.status == 'x', oplays: t.status == 'o'}">
-			
+			ng-class= "{xplays: t.status == 'x', oplays: t.status == 'o'}">	
 			</div>
 		</div>	
 			<div id = "Player1">
