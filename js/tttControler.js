@@ -81,7 +81,7 @@ function tttController($firebaseObject, $index) {
 			// if its o turn 
 			} else {
 				self.ttt.boxes[$index].status = 'o';
-				// checkWinner();
+				checkWinner();
 				counter++;
 			}
 
@@ -114,7 +114,17 @@ function tttController($firebaseObject, $index) {
 
 		 	|| ((self.ttt.boxes[2].status == 'x')
 		 	&& (self.ttt.boxes[5].status == 'x')
-		 	&& (self.ttt.boxes[8].status == 'x')))
+		 	&& (self.ttt.boxes[8].status == 'x'))
+			
+			|| ((self.ttt.boxes[0].status == 'x')
+			&& (self.ttt.boxes[4].status == 'x')
+			&& (self.ttt.boxes[8].status == 'x'))
+			
+			|| ((self.ttt.boxes[2].status == 'x')
+			&& (self.ttt.boxes[4].status == 'x')
+			&& (self.ttt.boxes[6].status == 'x')))
+			
+
 			{console.log("Player 1 Wins!");}
 
 		else if (((self.ttt.boxes[0].status == 'o') 
@@ -139,7 +149,15 @@ function tttController($firebaseObject, $index) {
 
 		 	|| ((self.ttt.boxes[2].status == 'o')
 		 	&& (self.ttt.boxes[5].status == 'o')
-		 	&& (self.ttt.boxes[8].status == 'o')))
+		 	&& (self.ttt.boxes[8].status == 'o'))
+			
+			|| ((self.ttt.boxes[0].status == 'o')
+			&& (self.ttt.boxes[4].status == 'o')
+			&& (self.ttt.boxes[8].status == 'o'))
+			
+			|| ((self.ttt.boxes[2].status == 'o')
+			&& (self.ttt.boxes[4].status == 'o')
+			&& (self.ttt.boxes[6].status == 'o')))
 			{console.log("Player 2 Wins!");}
 
 };
