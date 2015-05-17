@@ -66,7 +66,7 @@ for (var i = 0; i < box.length; i++) {
   allmoves.push(e.target.id);
   console.log(omoves);
   hasWinningCombo(omoves, winningCombos) ==true) {
-  alert("o moves")
+  alert("o wins")
   }
 } 	
   else {

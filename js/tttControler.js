@@ -35,9 +35,8 @@ function tttController($firebaseObject, $index) {
 	self.board = board();
 	// self.gamePlay is the game logic
 	self.gamePlay = gamePlay;
-
-	self.images = true;
 		
+	// self.board.message = 
 		
 		// get TTT links up to the firebase 
 	function getTtt() {
@@ -67,7 +66,7 @@ function tttController($firebaseObject, $index) {
 	function gamePlay($index) {
 		// when a box is clicked check if it has been already clicked
 		if (self.ttt.boxes[$index].select === true) { 
-			alert("seats taken")
+			alert("You're a Cheater!")
 		// sets the box to true
 		} else {
 			self.ttt.boxes[$index].select = true;
@@ -77,11 +76,12 @@ function tttController($firebaseObject, $index) {
 			if (counter % 2 !== 0) {	
 				self.ttt.boxes[$index].status = 'x';
 				// console.log(self.ttt.boxes[$index].select);
-				// self.images = true;
+				checkWinner();
 				counter++;
 			// if its o turn 
 			} else {
 				self.ttt.boxes[$index].status = 'o';
+				// checkWinner();
 				counter++;
 			}
 
@@ -89,8 +89,69 @@ function tttController($firebaseObject, $index) {
 		self.ttt.$save();
 		}
 	}
-	function getWinner() {
+	
 
-	}
+	function checkWinner() {
+		if   (((self.ttt.boxes[0].status == 'x') 
+		 	&& (self.ttt.boxes[1].status == 'x')
+		 	&& (self.ttt.boxes[2].status == 'x'))
+		 	
+		 	|| ((self.ttt.boxes[3].status == 'x')
+		 	&& (self.ttt.boxes[4].status == 'x')
+		 	&& (self.ttt.boxes[5].status == 'x'))
+		 	
+		 	|| ((self.ttt.boxes[6].status == 'x')
+		 	&& (self.ttt.boxes[7].status == 'x')
+		 	&& (self.ttt.boxes[8].status == 'x'))
+		 	
+		 	|| ((self.ttt.boxes[0].status == 'x')
+		 	&& (self.ttt.boxes[3].status == 'x')
+		 	&& (self.ttt.boxes[6].status == 'x'))
+		 	
+		 	|| ((self.ttt.boxes[1].status == 'x')
+		 	&& (self.ttt.boxes[4].status == 'x')
+		 	&& (self.ttt.boxes[7].status == 'x'))
+
+		 	|| ((self.ttt.boxes[2].status == 'x')
+		 	&& (self.ttt.boxes[5].status == 'x')
+		 	&& (self.ttt.boxes[8].status == 'x')))
+			{console.log("Player 1 Wins!");}
+
+		else if (((self.ttt.boxes[0].status == 'o') 
+		 	&& (self.ttt.boxes[1].status == 'o')
+		 	&& (self.ttt.boxes[2].status == 'o'))
+		 	
+		 	|| ((self.ttt.boxes[3].status == 'o')
+		 	&& (self.ttt.boxes[4].status == 'o')
+		 	&& (self.ttt.boxes[5].status == 'o'))
+		 	
+		 	|| ((self.ttt.boxes[6].status == 'o')
+		 	&& (self.ttt.boxes[7].status == 'o')
+		 	&& (self.ttt.boxes[8].status == 'o'))
+		 	
+		 	|| ((self.ttt.boxes[0].status == 'o')
+		 	&& (self.ttt.boxes[3].status == 'o')
+		 	&& (self.ttt.boxes[6].status == 'o'))
+		 	
+		 	|| ((self.ttt.boxes[1].status == 'o')
+		 	&& (self.ttt.boxes[4].status == 'o')
+		 	&& (self.ttt.boxes[7].status == 'o'))
+
+		 	|| ((self.ttt.boxes[2].status == 'o')
+		 	&& (self.ttt.boxes[5].status == 'o')
+		 	&& (self.ttt.boxes[8].status == 'o')))
+			{console.log("Player 2 Wins!");}
 
 };
+
+
+// 		 	== self.ttt.boxes[b]).status
+// 		 	&& self.ttt.boxes[a].status
+// 		 	== self.ttt.boxes[c]).status
+// 		 {
+// 		 	console.log(self.ttt.boxes[a].status);
+//    		}
+// }
+ 
+};
+
