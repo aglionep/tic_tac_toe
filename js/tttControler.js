@@ -36,7 +36,9 @@ function tttController($firebaseObject, $index) {
 	// self.gamePlay is the game logic
 	self.gamePlay = gamePlay;
 		
-	// self.board.message = 
+	// self.board.message = "";
+
+	// self.board.message = " Player One Wins !";
 		
 		// get TTT links up to the firebase 
 	function getTtt() {
@@ -84,13 +86,11 @@ function tttController($firebaseObject, $index) {
 				checkWinner();
 				counter++;
 			}
-
-
-		self.ttt.$save();
 		}
+				self.ttt.$save();
 	}
 	
-
+	// checks x and o for a winner
 	function checkWinner() {
 		if   (((self.ttt.boxes[0].status == 'x') 
 		 	&& (self.ttt.boxes[1].status == 'x')
@@ -124,8 +124,7 @@ function tttController($firebaseObject, $index) {
 			&& (self.ttt.boxes[4].status == 'x')
 			&& (self.ttt.boxes[6].status == 'x')))
 			
-
-			{console.log("Player 1 Wins!");}
+			{console.log("Player 1 Wins!");}	
 
 		else if (((self.ttt.boxes[0].status == 'o') 
 		 	&& (self.ttt.boxes[1].status == 'o')
@@ -160,9 +159,9 @@ function tttController($firebaseObject, $index) {
 			&& (self.ttt.boxes[6].status == 'o')))
 			{console.log("Player 2 Wins!");}
 
+			self.ttt.$save();
+	};
 };
-
-
 // 		 	== self.ttt.boxes[b]).status
 // 		 	&& self.ttt.boxes[a].status
 // 		 	== self.ttt.boxes[c]).status
@@ -171,5 +170,5 @@ function tttController($firebaseObject, $index) {
 //    		}
 // }
  
-};
+
 
